@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Zain Khan — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Zain Khan — Frontend Developer & UI Engineer specializing in modern web development, UI/UX, and C++ systems."
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* Background & Surfaces */
+        --bg: #0f172a; /* Deep navy */
+        --card: rgba(30, 41, 59, 0.78); /* Glass slate */
+
+        /* Text Colors */
+        --text: #f1f5f9;
+        --text-strong: #ffffff;
+        --text-soft: #cbd5e1;
+
+        /* Muted */
+        --muted: #94a3b8;
+        --muted-dark: #64748b;
+
+        /* Borders */
+        --border: rgba(148, 163, 184, 0.18);
+        --border-strong: rgba(148, 163, 184, 0.28);
+
+        /* Accent: Neon Cyan */
+        --accent: #38bdf8;
+        --accent-light: #7dd3fc;
+
+        /* UI */
+        --tag-bg: rgba(56, 189, 248, 0.12);
+        --tag-text: #38bdf8;
+
+        --btn-bg: rgba(255, 255, 255, 0.1);
+        --btn-hover: rgba(255, 255, 255, 0.18);
+
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Inter, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 40px;
+      }
+
+      /* Layout */
+      .site {
+        max-width: 1150px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 32px;
+      }
+
+      /* Animation */
+      .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+        opacity: 0;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      main,
+      aside {
+        background: var(--card);
+        backdrop-filter: blur(14px);
+        border-radius: var(--radius);
+        padding: 28px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+      }
+
+      /* HERO */
+      header.hero {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      /* Avatar — SAME SIZE & POSITION */
+      .avatar {
+        width: 600px;
+        height: 260px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--accent);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-strong);
+      }
+      .hero span {
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      .links {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* Buttons — PREMIUM LOOK */
+      .btn {
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        border: none;
+        background: var(--accent);
+        color: #0f172a;
+        transition: 0.25s ease;
+        box-shadow: 0 5px 20px rgba(56, 189, 248, 0.35);
+      }
+      .btn:hover {
+        background: var(--accent-light);
+        box-shadow: 0 7px 25px rgba(56, 189, 248, 0.55);
+        transform: translateY(-2px);
+      }
+
+      .btn.primary {
+        background: var(--accent);
+        color: #0f172a;
+      }
+
+      /* Section Labels */
+      .caps {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .card {
+        background: rgba(15, 23, 42, 0.6);
+        padding: 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px);
+        transition: 0.28s ease;
+        box-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 6px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        background: var(--tag-bg);
+        color: var(--tag-text);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      /* Sidebar */
+      aside h2 {
+        margin-top: 0;
+        font-size: 22px;
+        color: var(--text-strong);
+      }
+
+      .about {
+        font-size: 14px;
+        color: var(--text-soft);
+        margin-top: 6px;
+      }
+
+      .skills {
+        margin-top: 20px;
+      }
+      .skill {
+        margin-bottom: 15px;
+      }
+
+      .bar {
+        width: 100%;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar > i {
+        height: 100%;
+        background: var(--accent);
+        display: block;
+        border-radius: 999px;
+      }
+
+      /* Contact */
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        margin-top: 8px;
+        font-size: 14px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      @media (max-width: 950px) {
+        .site {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site fade-in">
+      <!-- MAIN CONTENT -->
+      <main>
+        <!-- HERO -->
+        <header class="hero">
+          <div class="avatar">
+            <img src="Images/profile.jpg" alt="Zain Khan" />
+          </div>
+
+          <div>
+            <h1>
+              Muhammad Zain-Ul-Abidin
+              <span>— Frontend Developer & UI Engineer</span>
+            </h1>
+            <p style="color: var(--muted)">
+              I build clean, modern, and high-performance websites with a focus
+              on usability, accessibility, and pixel-perfect interfaces. My work
+              blends beautiful UI with reliable engineering.
+            </p>
+
+            <div class="links">
+              <a
+                class="btn primary"
+                href="https://github.com/zainkhan9560?tab=repositories"
+                >View Projects</a
+              >
+              <a class="btn" href="mailto:adsbyzainkhan9560@gmail.com"
+                >Email Me</a
+              >
+              <a class="btn" href="tel:03168328580">Call</a>
+            </div>
+          </div>
+        </header>
+
+        <!-- PROJECTS -->
+        <section style="margin-top: 28px">
+          <div class="caps">Selected Projects</div>
+          <div class="projects">
+            <div class="card">
+              <h3>Clinic Appointment & Earnings Management System</h3>
+              <p style="color: var(--muted); font-size: 14px">
+                A modular C++ system that manages clinic operations including
+                scheduling, doctor availability, patient queues, and automated
+                earnings tracking. Built with clean OOP architecture.
+              </p>
+              <div class="project-tags">
+                <div class="tag">C++</div>
+                <div class="tag">OOP</div>
+                <div class="tag">Scheduling</div>
+              </div>
+              <div style="margin-top: 12px">
+                <a
+                  class="btn"
+                  href="https://github.com/zainkhan9560/Clinic-Appointment-Earnings-Management-System"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Hotel Management System</h3>
+              <p style="color: var(--muted); font-size: 14px">
+                A complete hotel management suite simulating real-world
+                workflows: booking, cancellations, service queues, admin tools,
+                and data-driven processing using OOP and DS concepts.
+              </p>
+              <div class="project-tags">
+                <div class="tag">C++</div>
+                <div class="tag">Data Structures</div>
+                <div class="tag">System Design</div>
+              </div>
+              <div style="margin-top: 12px">
+                <a
+                  class="btn"
+                  href="https://github.com/zainkhan9560/Hotel-Management-System"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Billing System (CRUD + Cart)</h3>
+              <p style="color: var(--muted); font-size: 14px">
+                A retail billing system enabling product CRUD operations,
+                inventory management, cart handling, and invoice generation.
+                Designed for modularity and clean readability.
+              </p>
+              <div class="project-tags">
+                <div class="tag">C++</div>
+                <div class="tag">CRUD</div>
+                <div class="tag">Retail Logic</div>
+              </div>
+              <div style="margin-top: 12px">
+                <a
+                  class="btn"
+                  href="https://github.com/zainkhan9560/Billing-System"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section style="margin-top: 32px">
+          <div class="caps">About</div>
+          <p style="color: var(--muted); font-size: 14px">
+            I’m a frontend developer with a strong foundation in modern web
+            technologies and user-centered design. I specialize in creating
+            responsive interfaces, optimized web applications, and clean,
+            maintainable code. I also work with C++ OOP systems, applying
+            engineering principles to real-world logic and workflows.
+          </p>
+        </section>
+
+        <!-- CORE EXPERTISE -->
+        <section style="margin-top: 32px">
+          <div class="caps">Core Expertise</div>
+          <ul
+            style="
+              font-size: 14px;
+              color: var(--muted);
+              margin-top: 10px;
+              line-height: 1.7;
+            "
+          >
+            <li>Frontend Engineering (HTML, CSS, JavaScript)</li>
+            <li>React UI Development & Component Architecture</li>
+            <li>Accessibility, Responsiveness & UI/UX Best Practices</li>
+            <li>C++ OOP, data structures & system logic</li>
+            <li>API integration & dynamic web applications</li>
+            <li>Modern CSS architecture & animation principles</li>
+          </ul>
+        </section>
+
+        <!-- CONTACT -->
+        <section style="margin-top: 32px">
+          <div class="caps">Get in touch</div>
+          <form
+            class="contact"
+            onsubmit="event.preventDefault(); contactSubmit();"
+            style="margin-top: 12px"
+          >
+            <input id="name" placeholder="Your Name" required />
+            <input
+              id="email"
+              type="email"
+              placeholder="your@email.com"
+              required
+            />
+            <textarea
+              id="message"
+              placeholder="Tell me about your project or idea"
+              required
+            ></textarea>
+            <button class="btn primary" type="submit" style="margin-top: 12px">
+              Send Message
+            </button>
+          </form>
+          <div
+            id="note"
+            style="color: var(--muted); font-size: 13px; margin-top: 6px"
+          ></div>
+        </section>
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="caps">Quick Info</div>
+        <h2>Muhammad Zain-Ul-Abidin</h2>
+        <div class="about">
+          Frontend Developer & UI Engineer — building user-focused,
+          high-performance web experiences.
+        </div>
+
+        <div class="skills">
+          <div class="caps">Skills</div>
+
+          <div class="skill">
+            <strong>HTML5 & CSS3</strong>
+            <div class="bar"><i style="width: 95%"></i></div>
+          </div>
+
+          <div class="skill">
+            <strong>JavaScript (ES6+)</strong>
+            <div class="bar"><i style="width: 88%"></i></div>
+          </div>
+
+          <div class="skill">
+            <strong>React.js</strong>
+            <div class="bar"><i style="width: 80%"></i></div>
+          </div>
+
+          <div class="skill">
+            <strong>C++ OOP</strong>
+            <div class="bar"><i style="width: 90%"></i></div>
+          </div>
+        </div>
+
+        <div class="caps" style="margin-top: 20px">Links</div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+          "
+        >
+          <a class="btn" href="https://github.com/zainkhan9560">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/zain-khan-5309ba335/"
+            >LinkedIn</a
+          >
+          <a class="btn" href="https://x.com/ZainKha01348706">Twitter/X</a>
+        </div>
+
+        <button class="btn" style="margin-top: 20px" onclick="downloadResume()">
+          Download Resume
+        </button>
+
+        <footer style="margin-top: 20px; color: var(--muted); font-size: 13px">
+          Lahore, Pakistan
+        </footer>
+      </aside>
+    </div>
+
+    <script>
+      function contactSubmit() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          document.getElementById("note").textContent =
+            "Please fill in all fields.";
+          return;
+        }
+
+        const subject = encodeURIComponent("Portfolio contact from " + name);
+        const body = encodeURIComponent(
+          message + "\n\n— " + name + " (" + email + ")"
+        );
+        window.location.href =
+          "mailto:adsbyzainkhan9560@gmail.com=" + subject + "&body=" + body;
+        document.getElementById("note").textContent =
+          "Opening your email client…";
+      }
+
+      function downloadResume() {
+        const link = document.createElement("a");
+        link.href = "assets/resume.pdf"; // <-- must be a real file in your project
+        link.download = "Zain-Ul-Abidin-Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>
